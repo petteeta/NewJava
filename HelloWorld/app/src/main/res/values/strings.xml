@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Hello World!</string>
-    <string name="hello_world">Happy Birthday</string>
-    <string name="Action_settings">Settings</string>
-    <string name="second_page">Welcome to the Second Page</string>
-    <string name="next_page">Next Page</string>
-</resources>
