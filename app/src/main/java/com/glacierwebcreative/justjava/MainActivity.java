@@ -1,4 +1,4 @@
-// package com.glacierwebcreative.justjava; *******************************
+// packages com.glacierwebcreative.justjava; *******************************
 
 
 package com.glacierwebcreative.justjava;
