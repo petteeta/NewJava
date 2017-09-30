@@ -1,4 +1,4 @@
-// package com.glacierwebcreative.justjava; *******************************
+d// package com.glacierwebcreative.justjava; *******************************
 
 package com.glacierwebcreative.justjava;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Increment Button  **************************************************
+    // Increment Button Method  **************************************************
 
     public void increment(View view) {
         quantity = quantity + 1;
