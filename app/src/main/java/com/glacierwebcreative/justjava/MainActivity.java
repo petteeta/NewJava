@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Decrement Button  ***************************************************
+    // Decrement Button Method ***************************************************
 
     public void decrement(View view) {
         quantity = quantity - 1;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Display Quantity *****************************************************
+    //Display Quantity Method *****************************************************
 
     private void displayQuantity(int howMany) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
