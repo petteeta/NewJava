@@ -1,25 +1,29 @@
-/**
- * package com.glacierwebcreative.justjava;
- */
+// package com.glacierwebcreative.justjava; *******************************
+
 package com.glacierwebcreative.justjava;
 
+import java.lang.reflect.Method;
 import java.text.NumberFormat;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.glacierwebcreative.justjava.R;
 
-/**
- * This app displays an order form to order coffee.
- */
+
+// This app displays an order form to order coffee.  ********************
+
 public class MainActivity extends AppCompatActivity {
     int quantity = 0;
+    int price = 0;
+    boolean hasWhippedCream = false;
 
-    /**
-     * Main Activity Method
-     */
+    // Main Activity Method  *******************************************
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,56 +31,68 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /**
-     * Order Button
-     */
-    public void submitOrder(View view) {
-        int price = quantity * 10;
-        String priceMessage = "Total: $" + price;
-        priceMessage = priceMessage + "\nThank You";
-        displayMessage(priceMessage);
-    }
 
-    /**
-     * Increment Button
-     */
+    // Increment Button  **************************************************
+
     public void increment(View view) {
         quantity = quantity + 1;
-        display(quantity);
-        displayPrice(quantity * 10);
+        displayQuantity(quantity);
+
     }
 
-    /**
-     * Decrement Button
-     */
+
+    // Decrement Button  ***************************************************
+
     public void decrement(View view) {
         quantity = quantity - 1;
-        display(quantity);
-        displayPrice(quantity * 10);
+        displayQuantity(quantity);
+
     }
 
-    /**
-     * Display Quantity
-     */
-    private void display(int number) {
+
+    //Display Quantity *****************************************************
+
+    private void displayQuantity(int howMany) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + howMany);
     }
 
-    /**
-     * Display Price
-     */
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
 
-    /**
-     * This method displays the given text on the screen.
-     */
+    // This method displays the given text on the screen.  *********************
+
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 
+
+    // Calculates the price of the order.
+
+    public int calculatePrice(int quantity, int pricePerCup) {
+        return quantity * pricePerCup;
+
+    }
+
+
+    // Order Button  *****************************************************
+
+    public void submitOrder(View view) {
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.checkBox);
+        hasWhippedCream = whippedCreamCheckBox.isChecked();
+
+        price = calculatePrice(quantity, 10);
+        displayMessage(createOrderSummary(price));
+    }
+
+
+    //  Create Order Summary  *********************************************
+
+    public String createOrderSummary(int price) {
+        String priceMessage = "Name = Kaptain Kunal";
+        priceMessage += "\nAdd Whipped Cream? " + hasWhippedCream;
+        priceMessage += "\nQuantity = " + quantity;
+        priceMessage += "\nTotal = $" + price;
+        priceMessage += "\nThank You!";
+        return priceMessage;
+    }
 }
