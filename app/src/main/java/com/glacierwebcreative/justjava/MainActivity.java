@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Order Button  *****************************************************
+    // Order Button Method *****************************************************
 
     public void submitOrder(View view) {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.checkBox);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //  Create Order Summary  *********************************************
+    //  Create Order Summary Method *********************************************
 
     public String createOrderSummary(int price) {
         String priceMessage = "Name = Kaptain Kunal";
