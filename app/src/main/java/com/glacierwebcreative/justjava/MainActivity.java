@@ -1,10 +1,11 @@
-d// package com.glacierwebcreative.justjava; *******************************
+// package com.glacierwebcreative.justjava; *******************************
+
 
 package com.glacierwebcreative.justjava;
-
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import java.lang.reflect.Method;
 import java.text.NumberFormat;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayQuantity(int howMany) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + howMany);
+        quantityTextView.setText(howMany);
     }
 
 
